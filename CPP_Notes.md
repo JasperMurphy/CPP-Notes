@@ -259,3 +259,6 @@ This makes all the names in the namespace available.
 ### using Declarations VS using Dirctives
 - Generally speaking, the using declaration is safer to use than a using directive because it shows exactly what names you are making available. And if the name conflicts with a local name, the compiler lets you know.
 - 
+
+## REFERENCES
+- *C++ primer plus*, Stephen Prata, Sixth Edition.
