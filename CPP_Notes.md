@@ -1,12 +1,21 @@
 # C++学习笔记
 ## 对象和类
-类的构成
-![pic](pic/class.png)
+### 类声明的构成（stucture)
+![pic](assets/class_structure.png)
+
+### 类的权限控制（Access Control）
+![pic](assets/class_accessControl.png)
+- private部分只可以通过public部分的成员函数访问
+- private部分的目的包括通过控制权限**保证数据完整性**
+- 通过权限控制使得class的使用者可以不关心数据是如何表示的，只需要知道成员函数传入的参数以及返回值，这使得语言变得**好用**。另一方面是对于函数有更好的实现方式时，函数的接口不需要更改，只要修改函数的实现部分，只使得函数**便于维护**。
+
+### 类成员函数的实现
+![pic](assets/class_member.png)
+- 成员函数的实现可以在函数定义时，但更多的情况在cpp文件里而不是在头文件里实现。
+- scope-resolution operator(:)指明了成员函数归属的类
 
 
-
-
-
+### 构造函数和析构函数
 - 构造函数和析构函数在编译器编译过程中就已经创建，在释放前会自动调用析构函数。
 - 构造函数与析构函数的执行顺序
      - 对于有多个构造函数的类
@@ -64,7 +73,7 @@ void test02() {
 
 ### Constructor Initializer List
 
-![pic](pic/Snipaste_2022-04-28_17-24-17.jpg)
+![pic](assets/Snipaste_2022-04-28_17-24-17.jpg)
 
 
 https://blog.csdn.net/zx3517288/article/details/48806785
@@ -73,7 +82,7 @@ https://blog.csdn.net/zx3517288/article/details/48806785
 ### Knowing Your Objects: The `this` Pointer 
 - WHAT：什么是`this`指针？
 `this`指针是指向调用成员函数的对象的指针
-![pic](pic/Snipaste_2022-04-28_22-56-42.jpg)
+![pic](assets/Snipaste_2022-04-28_22-56-42.jpg)
      - 若kate调用topval()，this指向kate
      - 若joe调用topval()，this指向joe
 
@@ -223,7 +232,7 @@ int main() {
 ```
 
 - 三个const的含义
-![pic](pic/Snipaste_2022-04-28_21-26-37.jpg)
+![pic](assets/Snipaste_2022-04-28_21-26-37.jpg)
 
 
 常见错误：
@@ -269,3 +278,4 @@ This makes all the names in the namespace available.
 
 ## REFERENCES
 - *C++ primer plus*, Stephen Prata, Sixth Edition.
+- *Programming: Principles and Practice Using C++*, Bjarne Storoustrup, Second Edition.
