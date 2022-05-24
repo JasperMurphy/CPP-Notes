@@ -1,7 +1,27 @@
 # C++学习笔记
-## 对象和类
-### 类声明的构成（stucture)
+## 类
+### 如何创建一个类
+创建一个类包含两个部分
+- 类声明
+下面的类声明通常写在`.h`文件里。
+```C++
+class className
+{
+private:
+data member declarations
+public:
+member function prototypes
+};
+```
+public部分为一些函数接口、方法，可由对象调用来访问private部分的数据。
+private部分为一些描述对象特征的数据。当然也可以抽象封装一些函数。
+下图为一个实例：
 ![pic](assets/class_structure.png)
+
+- 类中的成员函数定义
+除一些特别简单的成员函数在其声明时定义，通常情况下多数函数定义在`.cpp`文件中实现。需要使用到scope-resolution operator(::)指明了成员函数归属的类
+
+![pic](assets/class_member.png)
 
 ### 类的权限控制（Access Control）
 ![pic](assets/class_accessControl.png)
@@ -9,16 +29,12 @@
 - private部分的目的包括通过控制权限**保证数据完整性**
 - 通过权限控制使得class的使用者可以不关心数据是如何表示的，只需要知道成员函数传入的参数以及返回值，这使得语言变得**好用**。另一方面是对于函数有更好的实现方式时，函数的接口不需要更改，只要修改函数的实现部分，只使得函数**便于维护**。
 
-### 类成员函数的实现
-![pic](assets/class_member.png)
-- 成员函数的实现可以在函数定义时，但更多的情况在cpp文件里而不是在头文件里实现。
-- scope-resolution operator(:)指明了成员函数归属的类
-
-
 ### 构造函数和析构函数
 - 构造函数和析构函数在编译器编译过程中就已经创建，在释放前会自动调用析构函数。
 - 构造函数与析构函数的执行顺序
      - 对于有多个构造函数的类
+
+
 ```C++
 class Person {
 public:
