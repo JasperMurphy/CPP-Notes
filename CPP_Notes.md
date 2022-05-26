@@ -30,6 +30,54 @@ private部分为一些描述对象特征的数据。当然也可以抽象封装�
 - 通过权限控制使得class的使用者可以不关心数据是如何表示的，只需要知道成员函数传入的参数以及返回值，这使得语言变得**好用**。另一方面是对于函数有更好的实现方式时，函数的接口不需要更改，只要修改函数的实现部分，只使得函数**便于维护**。
 
 ### 构造函数和析构函数
+*目的：*
+C++创建构造函数和析构函数的目的是使用类对象时如同使用其他内部类型（如：int、char）一样，具体来说就是其他类型初始化时可以赋值值，但由于类的成员多存储在private部分，初始化是无法访问这部分的，因而引入构造函数。
+The job of a constructor is to initialize the data members of a class object.
+
+- 为什么对象创建的时候需要初始化？
+理由是对象使用过程中并不知道成员及成员函数的使用顺序，最后的办法就是创建成员的时候就将其初始化。
+
+不要将构造函数参数名与类成员名取成相同的，这样会导致在构造函数中赋值时发现同一个名字的参数值赋给了同一个名字的类成员变量。
+*介绍两种方法来命名类的成员变量：*
+- 方法1：加m_作为前缀，表明是成员变量。（例如：m_price）
+- 方法2：加_作为后缀，表明是成员变量。（例如：price_)
+这样就可以在构造函数中按下面这种方式使用:
+`m_price = price;`
+
+
+构造函数显式初始化the constructor explicitly:
+`Stock garment = Stock("Furry Mason", 50, 2.5));`
+
+构造函数隐式初始化the constructor implicitly:
+`Stock garment("Furry Mason", 50, 2.5);`
+
+`Stock *pstock = new Stock("Electroshock Games", 18, 19.0);`
+This statement creates a Stock object, initializes it to the values provided by the arguments, and assigns the address of the object to the pstock pointer. In this case, the object doesn’t have a name, but you can use the pointer to manage the object.
+
+构造函数并不是类中的一个普通的成员函数。普通成员函数可由对象调用，但构造函数创建对象
+You can’t use an object to invoke a constructor because until the constructor finishes its work of making the object, there is no object. Rather than being invoked by an object, the constructor is used to create the object.
+
+#### 默认构造函数Default Constructors
+
+
+
+
+
+
+*遗留问题：*
+
+
+
+*参考：*
+*C++ primer plus*, Stephen Prata, Sixth Edition. Page 524
+*C++ Primer*, Stanley B. Lippman, Josée Lajoie, Barbara E. Moo, Fifth Edition.
+
+
+
+Class Constructors and Destructors
+
+
+
 - 构造函数和析构函数在编译器编译过程中就已经创建，在释放前会自动调用析构函数。
 - 构造函数与析构函数的执行顺序
      - 对于有多个构造函数的类
@@ -294,3 +342,4 @@ This makes all the names in the namespace available.
 ## REFERENCES
 - *C++ primer plus*, Stephen Prata, Sixth Edition.
 - *Programming: Principles and Practice Using C++*, Bjarne Storoustrup, Second Edition.
+- *C++ Primer*, Stanley B. Lippman, Josée Lajoie, Barbara E. Moo, Fifth Edition.
