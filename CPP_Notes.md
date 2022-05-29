@@ -58,30 +58,13 @@ This statement creates a Stock object, initializes it to the values provided by 
 You can’t use an object to invoke a constructor because until the constructor finishes its work of making the object, there is no object. Rather than being invoked by an object, the constructor is used to create the object.
 
 #### 默认构造函数Default Constructors
-
-
-
-
-
-
-*遗留问题：*
-
-
-
-*参考：*
-*C++ primer plus*, Stephen Prata, Sixth Edition. Page 524
-*C++ Primer*, Stanley B. Lippman, Josée Lajoie, Barbara E. Moo, Fifth Edition.
-
-
-
-Class Constructors and Destructors
-
+指构造函数中没有参数
 
 
 - 构造函数和析构函数在编译器编译过程中就已经创建，在释放前会自动调用析构函数。
+
 - 构造函数与析构函数的执行顺序
      - 对于有多个构造函数的类
-
 ```C++
 class Person {
 public:
@@ -153,8 +136,6 @@ https://blog.csdn.net/zx3517288/article/details/48806785
 当利用一个类创建了多个对象时，且多个对象之间需要相互调用。此时作为参数被传入的对象拥有形参名，称为被显式地访问，另一个调用方法的对象被称为隐式的访问。对于这个调用方法的对象在方法内部实现过程中没有名字，通过`this`来指向。实际上，`this`被作为隐藏参数传递给了方法。
 - HOW:如何使用`this`指针？
 在
-
-
 
 ```C++
 #include <iostream>
@@ -305,6 +286,9 @@ int main() {
      - 在main()函数中定义成员函数
 
 
+*参考：*
+*C++ primer plus*, Stephen Prata, Sixth Edition. Page 524
+*C++ Primer*, Stanley B. Lippman, Josée Lajoie, Barbara E. Moo, Fifth Edition.
 
 
 
