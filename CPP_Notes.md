@@ -328,6 +328,29 @@ This makes all the names in the namespace available.
 - Generally speaking, the using declaration is safer to use than a using directive because it shows exactly what names you are making available. And if the name conflicts with a local name, the compiler lets you know.
 - 
 
+## 第11章 使用类
+### 运算符重载
+使用`operator+()`重载"+"运算符
+使用`operator*()`重载"*"运算符
+...
+运算符必须是有效的C++运算符，因而像"@"就不行，因为C++中没有@
+
+使用重载的符号时有两种用法：
+- 运算符表示法
+```C++
+total = coding + fixing;
+```
+左侧的coding是调用对象，右侧的fixing是作为参数被传递的对象
+
+- 函数表示法（类似使用函数一样调用）
+```C++
+total = morefixing.operator+(total);
+```
+三个及以上对象运用符号重载遵循左边第一个作为调用对象，右边剩余的作为被调用对象，再依次左边第一作为调用对象，剩下的作为被调用对象的规则。
+
+**代码实践：**Codes\11.2.1 Adding an Addition OperatorAdding an Addition Operator
+
+
 ## REFERENCES
 - *C++ primer plus*, Stephen Prata, Sixth Edition.
 - *Programming: Principles and Practice Using C++*, Bjarne Storoustrup, Second Edition.
